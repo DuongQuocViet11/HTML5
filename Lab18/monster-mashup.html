@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Monster Mashup</title>
+  <style type="text/css">
+    body{
+      background-color: #000000;
+    }
+    p{
+      color: #7DF97A;
+    }
+    #header{
+      text-align: center;
+    }
+    #main{
+      text-align: center;
+    }
+    #guess_box{
+      background-image: url("images/frame.png");
+      width: 546px;
+      height: 629px;
+      margin: auto;
+    }
+
+    #img1{
+      overflow: hidden;
+      width: 367px;
+      margin-bottom: -4px;
+      padding-top: 84px;
+      padding-left: 92px;
+
+    }
+    #img2{
+      overflow: hidden;
+      width: 367px;
+      margin-bottom: -4px;
+      padding-left: 92px;
+
+    }
+    #img3{
+      overflow: hidden;
+      width: 367px;
+      margin-bottom: -4px;
+      padding-left: 92px;
+
+    }
+    #img4{
+      overflow: hidden;
+      width: 367px;
+      margin-bottom: -4px;
+      padding-left: 92px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+   <div id="header">
+     <img src="images/Monster_Mashup.png">
+     <p>Make your own monster face by clicking on the picture</p>
+   </div>
+   <div id="main">
+     <div id="guess_box">
+       <div id="full">
+        <div id="img1"><img src="images/headsstrip.jpg" /></div>
+        <div id="img2"><img src="images/eyesstrip.jpg" /></div>
+        <div id="img3"><img src="images/nosesstrip.jpg" /></div>
+        <div id="img4"><img src="images/mouthsstrip.jpg" /></div>
+       </div>
+
+     </div>
+   </div>
+   <script type="text/javascript">
+     $(document).ready(function (){
+        $("#img1").click(function (){
+          $("#img1").animate({
+             left: 300
+          }, 2000);
+        });
+       $("#img2").click(function (){
+         $("#img2").animate({
+           left: 300
+         }, 2000);
+       });
+       $("#img3").click(function (){
+         $("#img3").animate({
+           left: 300
+         }, 2000);
+       });
+       $("#img4").click(function (){
+         $("#img4").animate({
+           left: 300
+         }, 2000);
+       });
+     });
+   </script>
+</body>
+</html>
