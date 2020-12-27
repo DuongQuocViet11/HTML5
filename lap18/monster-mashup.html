@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Monster Mashup</title>
+  <style type="text/css">
+    body, html {
+      height: 100%;
+      margin: 0;
+      text-align: center;
+    }
+
+    #container{
+      background-image: url("images/lightning-01.jpg");
+      height: 100%;
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #face{
+      background-image: url("images/frame.png");
+      width: 546px;
+      height: 629px;
+      margin: auto;
+      background-repeat: no-repeat;
+    }
+
+    #face-items{
+      width: 366px;
+      margin: auto;
+      overflow: hidden;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div id="container">
+  <div id="frame">
+    <img src="images/Monster_Mashup.png" alt="" height="33" width="286"/>
+    <p>Make your monster face by clicking on the picture</p>
+  </div>
+  <div id="face">
+    <div id="face-items">
+      <img id="headsstrip" onclick="changeItem('#headsstrip')" src="images/headsstrip.jpg" alt="" style="margin-top: 82px"/>
+      <img id="eyesstrip" onclick="changeItem('#eyesstrip')" src="images/eyesstrip.jpg" alt=""/>
+      <img id="nosesstrip" onclick="changeItem('#nosesstrip')" src="images/nosesstrip.jpg" alt=""/>
+      <img id="mouthsstrip" onclick="changeItem('#mouthsstrip')" src="images/mouthsstrip.jpg" alt=""/>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var bgImgUrls = [
+    "img/lightning-01.jpg",
+    "img/lightning-02.jpg",
+    "img/lightning-03.jpg"
+  ];
+  var bgIdx = 0;
+  setInterval(setBackground, 3000);
+
+  function setBackground() {
+    if (bgIdx < bgImgUrls.length-1)
+      bgIdx ++;
+    else
+      bgIdx = 0;
+    $("#container").css("background-image", 'url("' + bgImgUrls[bgIdx] + '")');
+  }
+
+  function changeItem(itemId){
+    var orgWidth = $("#face-items")[0].offsetLeft;
+    var curWidth = $(itemId)[0].offsetLeft;
+    var headIdx = (orgWidth-curWidth)/366;
+    var nextIdx = (headIdx < 9) ? headIdx+1:0;
+    $(itemId).animate({"margin-left": "-"+(nextIdx*366).toString() + "px"});
+
+  }
+
+  function changeHead() {
+    var orgWidth = $("#face-items")[0].offsetLeft;
+    var curWidth = $("#headsstrip")[0].offsetLeft;
+    var headIdx = (orgWidth-curWidth)/366;
+    var nextIdx = (headIdx < 9) ? headIdx+1:0;
+    $("#headsstrip").animate({"margin-left": "-"+(nextIdx*366).toString() + "px"});
+
+  }
+
+  function changeEye(){
+    var orgWidth = $("#face-items")[0].offsetLeft;
+    var curWidth = $("#eyesstrip")[0].offsetLeft;
+    var headIdx = (orgWidth-curWidth)/366;
+    var nextIdx = (headIdx < 9) ? headIdx+1:0;
+    $("#eyesstrip").animate({"margin-left": "-"+(nextIdx*366).toString() + "px"});
+  }
+
+  function changeNose(){
+    var orgWidth = $("#face-items")[0].offsetLeft;
+    var curWidth = $("#nosesstrip")[0].offsetLeft;
+    var headIdx = (orgWidth-curWidth)/366;
+    var nextIdx = (headIdx < 9) ? headIdx+1:0;
+    $("#nosesstrip").animate({"margin-left": "-"+(nextIdx*366).toString() + "px"});
+  }
+
+  function changeMouth(){
+    var orgWidth = $("#face-items")[0].offsetLeft;
+    var curWidth = $("#mouthsstrip")[0].offsetLeft;
+    var headIdx = (orgWidth-curWidth)/366;
+    var nextIdx = (headIdx < 9) ? headIdx+1:0;
+    $("#mouthsstrip").animate({"margin-left": "-"+(nextIdx*366).toString() + "px"});
+  }
+</script>
+</body>
+</html>
